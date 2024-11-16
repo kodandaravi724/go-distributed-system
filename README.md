@@ -29,3 +29,12 @@ The project involves:
    git clone https://github.com/yourusername/go-distributed-system.git
    cd go-distributed-system
    go mod download
+
+### Contributing
+
+Contributions to enhance this project! Feel free to:
+
+- Add new features.
+- Optimize existing code.
+- Improve documentation.
+- Create a pull request or open an issue to get started. Your contributions are greatly appreciated!
