@@ -1,8 +1,6 @@
 module go-distributed-system
 
-go 1.22.7
-
-toolchain go1.22.9
+go 1.23
 
 require (
 	github.com/gin-gonic/gin v1.10.0
