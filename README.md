@@ -33,3 +33,23 @@ The project uses **gRPC**, **Protocol Buffers**, and **Go Channels** to implemen
 3. **curl** for testing API endpoints.
 
 ---
+
+## Setup Instructions
+
+### 1. Clone the Repository
+```bash
+git clone https://github.com/kodandaravi724/go-distributed-system.git
+cd go-distributed-system
+```
+
+### 2. Install Dependencies
+```bash
+go mod download
+```
+
+### 3. Compile Protocol Buffers
+```bash
+protoc --go_out=./core --go-grpc_out=./core core/node.proto
+```
+
+---
