@@ -53,3 +53,56 @@ protoc --go_out=./core --go-grpc_out=./core core/node.proto
 ```
 
 ---
+
+
+## How to Run
+
+### Start the Master Node
+In the first terminal, run:
+```bash
+go run main.go master
+```
+
+Expected output:
+```
+[GIN-debug] POST   /tasks                    --> go-distributed-system/core.(*MasterNode).Init.func1 (3 handlers)
+[GIN-debug] Listening and serving HTTP on :9092
+```
+
+### Start a Worker Node
+In a second terminal, run:
+```bash
+go run main.go worker
+```
+
+Expected output:
+```
+worker node started
+```
+
+---
+
+## Example: Assign a Task
+
+1. With the master node running, open a third terminal.
+2. Execute the following API call to assign a task:
+```bash
+curl -X POST     -H "Content-Type: application/json"     -d '{"cmd": "touch /tmp/hello-distributed-system"}'     http://localhost:9092/tasks
+```
+
+3. Check the worker node terminal. You should see:
+```
+received command: touch /tmp/hello-distributed-system
+```
+
+4. Verify task execution:
+```bash
+ls -l /tmp/hello-distributed-system
+```
+
+Expected output:
+```
+-rw-r--r--  1 user  group     0B Dec  6 10:22 /tmp/hello-distributed-system
+```
+
+---
