@@ -1,40 +1,35 @@
-# Go Distributed System
-
-This project demonstrates how to implement a simple distributed system using **Go**. It includes a master-worker architecture with secure communication between nodes using **gRPC**.
+# Distributed System in Go
 
 ## Overview
 
-The project involves:
-- A **Master Node** to assign tasks and control the system.
-- **Worker Nodes** to execute tasks based on commands received from the master.
+This project demonstrates a simple distributed system written in Go. It includes:
 
-## Features (Initial Scope)
-- Task assignment from the master to workers.
-- Worker status reporting to the master.
+- **Master Node:** Acts as the control system to assign tasks.
+- **Worker Node:** Executes tasks assigned by the master.
+- **gRPC Protocol:** For efficient and secure communication between master and worker nodes.
+- **API Interface:** Enables external task submissions to the master node.
 
-## Technologies Used
-- **Go**: Programming language.
-- **gRPC**: Framework for secure inter-node communication.
-- **Protocol Buffers**: Interface definition language for gRPC.
+The project uses **gRPC**, **Protocol Buffers**, and **Go Channels** to implement a lightweight distributed system architecture.
 
-## Getting Started
+---
 
-### Prerequisites
-1. Install [Go](https://go.dev/) (v1.17 or later).
-2. Install `protoc` (Protocol Buffers compiler). Refer to the [official guide](https://grpc.io/docs/protoc-installation/).
+## Features
 
-### Initial Setup
-1. Initialize the project:
-   ```bash
-   git clone https://github.com/yourusername/go-distributed-system.git
-   cd go-distributed-system
-   go mod download
+1. **Node Communication:**
+   - gRPC-based communication between master and worker nodes.
+2. **Task Assignment:**
+   - Master node assigns tasks to worker nodes using Server-Side Streaming RPC.
+3. **Status Reporting:**
+   - Worker nodes periodically report their status to the master node using Simple RPC.
+4. **Task Execution:**
+   - Worker nodes execute commands sent from the master node.
 
-### Contributing
+---
 
-Contributions to enhance this project! Feel free to:
+## Prerequisites
 
-- Add new features.
-- Optimize existing code.
-- Improve documentation.
-- Create a pull request or open an issue to get started. Your contributions are greatly appreciated!
+1. **Go (>= 1.23)** installed.
+2. **gRPC tools:** Install `protoc` for Protocol Buffers compilation ([gRPC Installation Guide](https://grpc.io/docs/protoc-installation/)).
+3. **curl** for testing API endpoints.
+
+---
