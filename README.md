@@ -87,7 +87,7 @@ worker node started
 1. With the master node running, open a third terminal.
 2. Execute the following API call to assign a task:
 ```bash
-curl -X POST     -H "Content-Type: application/json"     -d '{"cmd": "touch /tmp/hello-distributed-system"}'     http://localhost:9092/tasks
+curl -X POST -H "Content-Type: application/json" -d '{"cmd": "touch /tmp/hello-distributed-system"}' http://localhost:9092/tasks
 ```
 
 3. Check the worker node terminal. You should see:
@@ -106,3 +106,37 @@ Expected output:
 ```
 
 ---
+
+
+## Project Structure
+
+```
+.
+├── core
+│   ├── node.proto             # Protocol Buffers file
+│   ├── node.pb.go             # Generated Protocol Buffers Go file
+│   ├── node_grpc.pb.go        # Generated gRPC Go file
+│   ├── node_service_server.go # Server-side implementation
+│   ├── worker_node.go         # Worker node implementation
+│   └── master_node.go         # Master node implementation
+├── main.go                    # Main entry point
+├── go.mod                     # Go module dependencies
+└── README.md                  # Project documentation
+```
+
+---
+
+## Libraries Used
+
+1. [gRPC](https://grpc.io/)
+2. [Protocol Buffers](https://developers.google.com/protocol-buffers)
+3. [Gin](https://gin-gonic.com/)
+4. Go's built-in libraries: `os/exec`, `context`, `net`.
+
+---
+
+## Future Improvements
+
+1. Add health checks for worker nodes.
+2. Implement distributed logging.
+3. Introduce authentication for secure communication.
